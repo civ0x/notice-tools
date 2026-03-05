@@ -1,0 +1,7 @@
+name = "notice-tools"
+compatibility_date = "2024-09-23"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "notice-signups"
+database_id = "" # Fill in after creating the D1 database

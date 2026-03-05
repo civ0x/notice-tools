@@ -1,0 +1,8 @@
+{
+  "name": "notice-tools",
+  "private": true,
+  "scripts": {
+    "dev": "npx wrangler pages dev public",
+    "deploy": "npx wrangler pages deploy public"
+  }
+}
