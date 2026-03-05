@@ -1,0 +1,1941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notice Design System</title>
+  <meta name="description" content="Visual design system reference for Notice — interoceptive awareness training for Apple Watch.">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       NOTICE DESIGN SYSTEM — VISUAL BRAND PAGE
+       ============================================================ */
+
+    :root {
+      --bright-marigold: #F0AF32;
+      --burnt-marigold: #B9691E;
+      --burnt-marigold-hover: #A35B16;
+      --bg: #F7F3EE;
+      --bg-dark: #1A1816;
+      --surface-warm: #EFEBE4;
+      --surface-card: #E8E3DA;
+      --surface-subtle: #DDD7CC;
+      --dark-mid: #272420;
+      --dark-card: #322E29;
+      --dark-subtle: #3D3833;
+      --text: #2A2520;
+      --text-mid: #4D453B;
+      --text-light: #7A7068;
+      --text-muted: #A69D94;
+      --text-faint: #C8C0B6;
+      --text-dark-primary: #E8E3DA;
+      --text-dark-secondary: #C8C0B6;
+      --text-dark-muted: #8A8078;
+      --border: rgba(42, 37, 32, 0.10);
+      --border-mid: rgba(42, 37, 32, 0.18);
+      --font-display: 'Hiragino Kaku Gothic Pro', 'Hiragino Kaku Gothic ProN', 'Shippori Mincho', sans-serif;
+      --font-headline: 'DM Sans', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --success: #4A7A4A;
+      --error: #A63D2F;
+      --warning: #B8860B;
+      --info: #A69D94;
+      --success-dark: #6B9E6B;
+      --error-dark: #D4654F;
+      --warning-dark: #D4A843;
+      --cta-dark: #C97A2E;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 300;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+    }
+
+    /* ---- PAGE NAV ---- */
+    .page-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 2rem;
+      background: rgba(247, 243, 238, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .page-nav__brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .page-nav__mark {
+      width: 24px; height: 24px;
+      object-fit: contain;
+    }
+    .page-nav__name {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      color: var(--text);
+    }
+    .page-nav__subtitle {
+      font-family: var(--font-mono);
+      font-weight: 300;
+      font-size: 0.55rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .page-nav__links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    .page-nav__links a {
+      font-family: var(--font-mono);
+      font-weight: 300;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .page-nav__links a:hover {
+      color: var(--burnt-marigold);
+    }
+
+    /* ---- LAYOUT ---- */
+    .page-header {
+      padding: 7rem 2rem 3rem;
+      text-align: center;
+    }
+    .page-header h1 {
+      font-family: var(--font-headline);
+      font-weight: 300;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    .page-header p {
+      font-size: 1rem;
+      color: var(--text-light);
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    section {
+      padding: 3rem 0 4rem;
+    }
+
+    /* Section divider — uses the Notice pattern */
+    .section-divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .section-divider__label {
+      font-family: var(--font-mono);
+      font-weight: 300;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--burnt-marigold);
+      white-space: nowrap;
+    }
+    .section-divider__line {
+      flex: 1;
+      height: 1px;
+      background: var(--border-mid);
+    }
+
+    .section-desc {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+      max-width: 640px;
+    }
+
+    .subsection-title {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: 1.05rem;
+      color: var(--text);
+      margin: 2.5rem 0 1rem;
+    }
+
+    /* ---- SWATCH GRID ---- */
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 1rem;
+    }
+    .swatch {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .swatch__color {
+      height: 72px;
+    }
+    .swatch__info {
+      padding: 0.6rem 0.75rem;
+      background: #fff;
+    }
+    .swatch__name {
+      font-family: var(--font-mono);
+      font-weight: 400;
+      font-size: 0.6rem;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      margin-bottom: 0.15rem;
+    }
+    .swatch__hex {
+      font-family: var(--font-mono);
+      font-weight: 300;
+      font-size: 0.55rem;
+      color: var(--text-muted);
+    }
+
+    /* ---- TOKEN TABLE ---- */
+    .token-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    .token-table th {
+      font-family: var(--font-mono);
+      font-weight: 400;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-align: left;
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid var(--border-mid);
+    }
+    .token-table td {
+      font-family: var(--font-mono);
+      font-weight: 300;
+      font-size: 0.75rem;
+      color: var(--text-mid);
+      padding: 0.6rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+    .token-table .token-name {
+      color: var(--text);
+      font-weight: 400;
+    }
+    .token-dot {
+      display: inline-block;
+      width: 14px; height: 14px;
+      border-radius: 3px;
+      border: 1px solid var(--border-mid);
+      vertical-align: middle;
+      margin-right: 0.5rem;
+    }
+
+    /* ---- SPACING DEMO ---- */
+    .spacing-demo {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .spacing-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .spacing-row__label {
+      font-family: var(--font-mono);
+      font-weight: 400;
+      font-size: 0.65rem;
+      color: var(--text-mid);
+      width: 80px;
+      flex-shrink: 0;
+    }
+    .spacing-row__bar {
+      height: 20px;
+      background: var(--bright-marigold);
+      border-radius: 3px;
+      opacity: 0.6;
+    }
+    .spacing-row__value {
+      font-family: var(--font-mono);
+      font-weight: 300;
+      font-size: 0.6rem;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    /* ---- TYPOGRAPHY SAMPLES ---- */
+    .type-sample {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: var(--surface-warm);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+    .type-sample__role {
+      font-family: var(--font-mono);
+      font-weight: 300;
+      font-size: 0.55rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--burnt-marigold);
+      margin-bottom: 0.75rem;
+    }
+    .type-sample__spec {
+      font-family: var(--font-mono);
+      font-weight: 300;
+      font-size: 0.6rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+    .type-display {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 2rem;
+      letter-spacing: 0.04em;
+      color: var(--text);
+    }
+    .type-headline {
+      font-family: var(--font-headline);
+      font-weight: 300;
+      font-size: clamp(1.4rem, 4vw, 2.2rem);
+      line-height: 1.3;
+      color: var(--text);
+    }
+    .type-body {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text-mid);
+    }
+    .type-label {
+      font-family: var(--font-mono);
+      font-weight: 300;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    /* ---- COMPONENT DEMOS ---- */
+    .demo-row {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .demo-label {
+      font-family: var(--font-mono);
+      font-weight: 300;
+      font-size: 0.55rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    /* Buttons */
+    .btn-primary {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-weight: 400;
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--burnt-marigold);
+      padding: 0.85rem 2.2rem;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+    .btn-primary:hover {
+      background: var(--burnt-marigold-hover);
+      transform: translateY(-1px);
+    }
+    .btn-primary:active { transform: translateY(0); }
+    .btn-primary[disabled] { opacity: 0.6; cursor: default; }
+    .btn-primary--sm {
+      font-size: 0.7rem;
+      padding: 0.5rem 1.2rem;
+      border-radius: 6px;
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-weight: 400;
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      background: transparent;
+      padding: 0.85rem 2.2rem;
+      border-radius: 8px;
+      border: 1.5px solid var(--border-mid);
+      cursor: pointer;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .btn-secondary:hover {
+      background: var(--surface-warm);
+    }
+
+    .btn-text {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 0.9rem;
+      color: var(--text-light);
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+    .btn-text:hover {
+      color: var(--burnt-marigold);
+      border-bottom-color: var(--burnt-marigold);
+    }
+
+    /* Cards */
+    .demo-card {
+      background: var(--surface-warm);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2rem 1.5rem;
+      max-width: 320px;
+    }
+    .demo-card__label {
+      font-family: var(--font-mono);
+      font-weight: 300;
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--burnt-marigold);
+      margin-bottom: 0.75rem;
+    }
+    .demo-card__title {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: 1.15rem;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+      line-height: 1.35;
+    }
+    .demo-card__desc {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 0.9rem;
+      color: var(--text-light);
+      line-height: 1.65;
+    }
+
+    /* Input */
+    .demo-input-row {
+      display: flex;
+      gap: 0;
+      max-width: 400px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1.5px solid var(--border-mid);
+      background: #fff;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .demo-input-row:focus-within {
+      border-color: var(--burnt-marigold);
+      box-shadow: 0 0 0 3px rgba(185, 105, 30, 0.1);
+    }
+    .demo-input {
+      flex: 1;
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 0.9rem;
+      padding: 0.75rem 1rem;
+      border: none;
+      outline: none;
+      background: transparent;
+      color: var(--text);
+      min-width: 0;
+    }
+    .demo-input::placeholder { color: var(--text-muted); }
+    .demo-input-btn {
+      flex-shrink: 0;
+      font-family: var(--font-mono);
+      font-weight: 400;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--burnt-marigold);
+      border: none;
+      padding: 0.75rem 1.4rem;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .demo-input-btn:hover { background: var(--burnt-marigold-hover); }
+
+    /* Feedback */
+    .feedback-row {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+    .feedback-item {
+      font-family: var(--font-mono);
+      font-weight: 300;
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
+    }
+
+    /* ---- DARK / LIGHT COMPARISON ---- */
+    .mode-comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .mode-panel {
+      border-radius: 12px;
+      padding: 2rem;
+      border: 1px solid var(--border);
+    }
+    .mode-panel--light {
+      background: var(--bg);
+    }
+    .mode-panel--dark {
+      background: var(--bg-dark);
+      border-color: rgba(232, 227, 218, 0.08);
+    }
+    .mode-panel__title {
+      font-family: var(--font-mono);
+      font-weight: 400;
+      font-size: 0.55rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .mode-panel--light .mode-panel__title { color: var(--text-muted); }
+    .mode-panel--dark .mode-panel__title { color: var(--text-dark-muted); }
+
+    .mode-surface {
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    .mode-text {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 0.85rem;
+      margin-bottom: 0.3rem;
+    }
+    .mode-text-sm {
+      font-family: var(--font-mono);
+      font-weight: 300;
+      font-size: 0.6rem;
+      letter-spacing: 0.06em;
+    }
+    .mode-btn {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-weight: 400;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #fff;
+      padding: 0.55rem 1.2rem;
+      border-radius: 6px;
+      border: none;
+      margin-top: 0.75rem;
+    }
+    .mode-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-weight: 300;
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-right: 1rem;
+    }
+
+    /* ---- ICON GRID ---- */
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 1rem;
+    }
+    .icon-cell {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1.25rem 0.5rem;
+      background: var(--surface-warm);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .icon-cell svg {
+      width: 36px;
+      height: 36px;
+    }
+    .icon-cell__label {
+      font-family: var(--font-mono);
+      font-weight: 300;
+      font-size: 0.55rem;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+    }
+
+    /* ---- MOTION DEMO ---- */
+    .motion-demo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .motion-box {
+      padding: 1.5rem;
+      background: var(--surface-warm);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      text-align: center;
+      min-height: 160px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .motion-box__label {
+      font-family: var(--font-mono);
+      font-weight: 300;
+      font-size: 0.55rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .motion-box__detail {
+      font-family: var(--font-mono);
+      font-weight: 300;
+      font-size: 0.6rem;
+      color: var(--text-light);
+    }
+
+    /* Fade-up demo */
+    .fadeup-target {
+      width: 60px; height: 60px;
+      background: var(--burnt-marigold);
+      border-radius: 8px;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .fadeup-target.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Breath demo */
+    .breath-circle {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: var(--bright-marigold);
+      animation: breathe 8s ease-in-out infinite;
+    }
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); opacity: 0.7; }
+      50% { transform: scale(1.15); opacity: 1; }
+    }
+
+    /* Stagger demo */
+    .stagger-row {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .stagger-dot {
+      width: 16px; height: 16px;
+      border-radius: 4px;
+      background: var(--burnt-marigold);
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .stagger-dot.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .replay-btn {
+      font-family: var(--font-mono);
+      font-weight: 300;
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      background: none;
+      border: 1px solid var(--border-mid);
+      border-radius: 4px;
+      padding: 0.3rem 0.6rem;
+      cursor: pointer;
+      transition: color 0.15s ease;
+    }
+    .replay-btn:hover { color: var(--burnt-marigold); }
+
+    /* ---- DATA VIZ DEMO ---- */
+    .viz-container {
+      background: var(--surface-warm);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+    }
+    .viz-container--dark {
+      background: var(--bg-dark);
+      border-color: rgba(232,227,218,0.08);
+    }
+    .sparkline-demo {
+      width: 100%;
+      height: 80px;
+    }
+    .signal-display {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+    .signal-value {
+      font-family: var(--font-headline);
+      font-weight: 600;
+      font-size: 2.5rem;
+      letter-spacing: -0.02em;
+    }
+    .signal-unit {
+      font-family: var(--font-mono);
+      font-weight: 300;
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
+    }
+    .signal-trend {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-family: var(--font-mono);
+      font-weight: 300;
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* Status badges */
+    .badge-row {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin: 1rem 0;
+    }
+    .status-badge {
+      font-family: var(--font-mono);
+      font-weight: 300;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ---- VOICE SECTION ---- */
+    .voice-example {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .voice-do, .voice-dont {
+      padding: 1.25rem;
+      border-radius: 8px;
+    }
+    .voice-do {
+      background: rgba(74, 122, 74, 0.06);
+      border: 1px solid rgba(74, 122, 74, 0.15);
+    }
+    .voice-dont {
+      background: rgba(166, 61, 47, 0.04);
+      border: 1px solid rgba(166, 61, 47, 0.12);
+    }
+    .voice-tag {
+      font-family: var(--font-mono);
+      font-weight: 400;
+      font-size: 0.55rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+    .voice-do .voice-tag { color: var(--success); }
+    .voice-dont .voice-tag { color: var(--error); }
+    .voice-text {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    /* ---- WATCH MOCKUP ---- */
+    .watch-mockup {
+      width: 180px;
+      height: 220px;
+      background: var(--bg-dark);
+      border-radius: 40px;
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid #3D3833;
+      position: relative;
+    }
+    .watch-mockup::after {
+      content: '';
+      position: absolute;
+      right: -8px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 5px;
+      height: 30px;
+      background: #3D3833;
+      border-radius: 0 3px 3px 0;
+    }
+    .watch-prompt {
+      font-family: -apple-system, 'SF Pro Text', 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 0.75rem;
+      color: var(--text-dark-primary);
+      text-align: center;
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+    }
+    .watch-option {
+      width: 100%;
+      padding: 0.4rem 0.6rem;
+      margin-bottom: 0.3rem;
+      background: var(--dark-card);
+      border-radius: 8px;
+      font-family: -apple-system, 'SF Pro Text', 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 0.65rem;
+      color: var(--text-dark-primary);
+      text-align: center;
+    }
+    .watch-option--skip {
+      background: transparent;
+      color: var(--text-dark-muted);
+      font-size: 0.6rem;
+    }
+
+    /* ---- PHONE MOCKUP ---- */
+    .phone-mockup {
+      width: 260px;
+      background: var(--bg);
+      border-radius: 28px;
+      padding: 2rem 1rem 1.5rem;
+      border: 2px solid var(--surface-subtle);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .phone-mockup__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 0.25rem;
+      margin-bottom: 0.25rem;
+    }
+    .phone-mockup__title {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: 1.1rem;
+      color: var(--text);
+    }
+    .phone-mockup__icon {
+      width: 20px; height: 20px;
+      color: var(--text-light);
+    }
+    .phone-card {
+      background: var(--surface-warm);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.75rem;
+    }
+    .phone-card__meta {
+      font-family: var(--font-mono);
+      font-weight: 300;
+      font-size: 0.5rem;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+    .phone-card__text {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 0.7rem;
+      color: var(--text-mid);
+      line-height: 1.5;
+    }
+
+    /* ---- MOCKUP ROW ---- */
+    .mockup-row {
+      display: flex;
+      gap: 3rem;
+      align-items: flex-start;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 2rem 0;
+    }
+    .mockup-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .mockup-wrapper__label {
+      font-family: var(--font-mono);
+      font-weight: 300;
+      font-size: 0.55rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ---- CONFIDENCE DOTS ---- */
+    .confidence-dots {
+      display: flex;
+      gap: 4px;
+    }
+    .confidence-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+    }
+    .confidence-dot--filled { background: var(--bright-marigold); }
+    .confidence-dot--empty { background: var(--border-mid); }
+
+    /* ---- FOOTER ---- */
+    .page-footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .page-footer__text {
+      font-family: var(--font-mono);
+      font-weight: 300;
+      font-size: 0.55rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 720px) {
+      .mode-comparison { grid-template-columns: 1fr; }
+      .motion-demo-grid { grid-template-columns: 1fr; }
+      .voice-example { grid-template-columns: 1fr; }
+      .page-nav__links { display: none; }
+      .container { padding: 0 1.5rem; }
+      .mockup-row { gap: 2rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .breath-circle { animation: none; opacity: 0.85; }
+      .fadeup-target { opacity: 1; transform: none; transition: none; }
+      .stagger-dot { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="page-nav">
+    <a href="/" class="page-nav__brand" style="text-decoration:none;color:inherit;">
+      <img src="/enso-mark.png" alt="Notice" class="page-nav__mark">
+      <div>
+        <div class="page-nav__name">Notice</div>
+        <div class="page-nav__subtitle">Design System v1.0</div>
+      </div>
+    </a>
+    <ul class="page-nav__links">
+      <li><a href="#colors">Colors</a></li>
+      <li><a href="#typography">Type</a></li>
+      <li><a href="#components">Components</a></li>
+      <li><a href="#modes">Modes</a></li>
+      <li><a href="#icons">Icons</a></li>
+      <li><a href="#motion">Motion</a></li>
+      <li><a href="#dataviz">Data</a></li>
+      <li><a href="#voice">Voice</a></li>
+    </ul>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="page-header">
+    <h1>Notice Design System</h1>
+    <p>Visual reference for all three product surfaces — Apple Watch, iPhone, and web. Extends the brand foundation with implementation-level specs.</p>
+  </header>
+
+  <div class="container">
+
+    <!-- ================================================================
+         1. COLORS
+         ================================================================ -->
+    <section id="colors">
+      <div class="section-divider">
+        <span class="section-divider__label">01 — Colors</span>
+        <span class="section-divider__line"></span>
+      </div>
+      <p class="section-desc">Warm where others are cool. No pure whites, no cool grays, no blue tints. Every color is rooted in the earth-tone family.</p>
+
+      <div class="subsection-title">Brand</div>
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="swatch__color" style="background: #F0AF32;"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">Bright Marigold</div>
+            <div class="swatch__hex">#F0AF32 — Mark</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: #B9691E;"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">Burnt Marigold</div>
+            <div class="swatch__hex">#B9691E — CTA</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: #A35B16;"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">Burnt Marigold Hover</div>
+            <div class="swatch__hex">#A35B16 — CTA hover</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection-title">Backgrounds</div>
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="swatch__color" style="background: #F7F3EE;"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">Warm Stone</div>
+            <div class="swatch__hex">#F7F3EE — Light bg</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: #1A1816;"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">Warm Black</div>
+            <div class="swatch__hex">#1A1816 — Dark bg</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection-title">Surfaces</div>
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="swatch__color" style="background: #EFEBE4;"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">Warm</div>
+            <div class="swatch__hex">#EFEBE4</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: #E8E3DA;"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">Card</div>
+            <div class="swatch__hex">#E8E3DA</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: #DDD7CC;"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">Subtle</div>
+            <div class="swatch__hex">#DDD7CC</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: #272420;"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">Dark Mid</div>
+            <div class="swatch__hex">#272420</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: #322E29;"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">Dark Card</div>
+            <div class="swatch__hex">#322E29</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: #3D3833;"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">Dark Subtle</div>
+            <div class="swatch__hex">#3D3833</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection-title">Text Hierarchy</div>
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="swatch__color" style="background: #2A2520;"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">Primary</div>
+            <div class="swatch__hex">#2A2520</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: #4D453B;"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">Secondary</div>
+            <div class="swatch__hex">#4D453B</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: #7A7068;"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">Tertiary</div>
+            <div class="swatch__hex">#7A7068</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: #A69D94;"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">Muted</div>
+            <div class="swatch__hex">#A69D94</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: #C8C0B6;"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">Faint</div>
+            <div class="swatch__hex">#C8C0B6</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection-title">Status</div>
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="swatch__color" style="background: #4A7A4A;"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">Success</div>
+            <div class="swatch__hex">#4A7A4A</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: #A63D2F;"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">Error</div>
+            <div class="swatch__hex">#A63D2F</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: #B8860B;"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">Warning</div>
+            <div class="swatch__hex">#B8860B</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background: #2F6B8A;"></div>
+          <div class="swatch__info">
+            <div class="swatch__name">Low / Cool</div>
+            <div class="swatch__hex">#2F6B8A</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         2. SPACING
+         ================================================================ -->
+    <section id="spacing">
+      <div class="section-divider">
+        <span class="section-divider__label">02 — Spacing</span>
+        <span class="section-divider__line"></span>
+      </div>
+      <p class="section-desc">4pt base unit. Fine enough for Watch, consistent enough for iPhone and web.</p>
+
+      <div class="spacing-demo">
+        <div class="spacing-row">
+          <span class="spacing-row__label">space.xs</span>
+          <div class="spacing-row__bar" style="width: 4px;"></div>
+          <span class="spacing-row__value">4pt</span>
+        </div>
+        <div class="spacing-row">
+          <span class="spacing-row__label">space.sm</span>
+          <div class="spacing-row__bar" style="width: 8px;"></div>
+          <span class="spacing-row__value">8pt</span>
+        </div>
+        <div class="spacing-row">
+          <span class="spacing-row__label">space.md</span>
+          <div class="spacing-row__bar" style="width: 16px;"></div>
+          <span class="spacing-row__value">16pt</span>
+        </div>
+        <div class="spacing-row">
+          <span class="spacing-row__label">space.lg</span>
+          <div class="spacing-row__bar" style="width: 24px;"></div>
+          <span class="spacing-row__value">24pt</span>
+        </div>
+        <div class="spacing-row">
+          <span class="spacing-row__label">space.xl</span>
+          <div class="spacing-row__bar" style="width: 32px;"></div>
+          <span class="spacing-row__value">32pt</span>
+        </div>
+        <div class="spacing-row">
+          <span class="spacing-row__label">space.2xl</span>
+          <div class="spacing-row__bar" style="width: 48px;"></div>
+          <span class="spacing-row__value">48pt</span>
+        </div>
+        <div class="spacing-row">
+          <span class="spacing-row__label">space.3xl</span>
+          <div class="spacing-row__bar" style="width: 64px;"></div>
+          <span class="spacing-row__value">64pt</span>
+        </div>
+      </div>
+
+      <div class="subsection-title">Corner Radii</div>
+      <div class="demo-row" style="margin-top: 1rem;">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.4rem;">
+          <div style="width: 48px; height: 48px; background: var(--surface-card); border: 1px solid var(--border-mid); border-radius: 6px;"></div>
+          <span class="demo-label">6px sm</span>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.4rem;">
+          <div style="width: 48px; height: 48px; background: var(--surface-card); border: 1px solid var(--border-mid); border-radius: 8px;"></div>
+          <span class="demo-label">8px md</span>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.4rem;">
+          <div style="width: 48px; height: 48px; background: var(--surface-card); border: 1px solid var(--border-mid); border-radius: 10px;"></div>
+          <span class="demo-label">10px lg</span>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.4rem;">
+          <div style="width: 48px; height: 48px; background: var(--surface-card); border: 1px solid var(--border-mid); border-radius: 12px;"></div>
+          <span class="demo-label">12px xl</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         3. TYPOGRAPHY
+         ================================================================ -->
+    <section id="typography">
+      <div class="section-divider">
+        <span class="section-divider__label">03 — Typography</span>
+        <span class="section-divider__line"></span>
+      </div>
+      <p class="section-desc">Four roles: display (wordmark), headline, body, and label. Light weights throughout — the typography breathes.</p>
+
+      <div class="type-sample">
+        <div class="type-sample__role">Display — Wordmark</div>
+        <div class="type-display">Notice</div>
+        <div class="type-sample__spec">Hiragino Kaku Gothic Pro W6 · 0.04em tracking · Fallback: Shippori Mincho 500</div>
+      </div>
+
+      <div class="type-sample">
+        <div class="type-sample__role">Headline</div>
+        <div class="type-headline">Your body already knows. Learn to listen.</div>
+        <div class="type-sample__spec">DM Sans 300 · 0.01em tracking · clamp(1.4rem, 4vw, 2.6rem)</div>
+      </div>
+
+      <div class="type-sample">
+        <div class="type-sample__role">Body</div>
+        <div class="type-body">Interoceptive awareness training for Apple Watch. Notice what's actually happening — before your mind tells a story about it. Heart rate, heart rate variability, breathing patterns surfaced as they happen.</div>
+        <div class="type-sample__spec">DM Sans 300–400 · 1rem · line-height 1.7</div>
+      </div>
+
+      <div class="type-sample">
+        <div class="type-sample__role">Label / System</div>
+        <div class="type-label">Real-Time Signals · Join Beta · Elevated</div>
+        <div class="type-sample__spec">JetBrains Mono 300 · 0.1–0.2em tracking · uppercase</div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         4. COMPONENTS
+         ================================================================ -->
+    <section id="components">
+      <div class="section-divider">
+        <span class="section-divider__label">04 — Components</span>
+        <span class="section-divider__line"></span>
+      </div>
+
+      <div class="subsection-title">Buttons</div>
+      <div class="demo-row">
+        <div>
+          <div class="demo-label">Primary</div>
+          <button class="btn-primary">Join Beta</button>
+        </div>
+        <div>
+          <div class="demo-label">Primary Small</div>
+          <button class="btn-primary btn-primary--sm">Join Beta</button>
+        </div>
+        <div>
+          <div class="demo-label">Disabled</div>
+          <button class="btn-primary" disabled>Join Beta</button>
+        </div>
+      </div>
+      <div class="demo-row">
+        <div>
+          <div class="demo-label">Secondary</div>
+          <button class="btn-secondary">Maybe Later</button>
+        </div>
+        <div>
+          <div class="demo-label">Text</div>
+          <a href="#" class="btn-text" onclick="return false">Learn more</a>
+        </div>
+      </div>
+
+      <div class="subsection-title">Card</div>
+      <div class="demo-row">
+        <div class="demo-card">
+          <div class="demo-card__label">Real-Time Signals</div>
+          <div class="demo-card__title">See what's happening now</div>
+          <div class="demo-card__desc">Heart rate, HRV, breathing patterns — continuous biometric signals surfaced as they happen, not as daily summaries.</div>
+        </div>
+      </div>
+
+      <div class="subsection-title">Text Input</div>
+      <div style="margin: 1rem 0;">
+        <div class="demo-input-row">
+          <input type="email" class="demo-input" placeholder="your@email.com">
+          <button class="demo-input-btn">Join Beta</button>
+        </div>
+        <div style="font-family: var(--font-mono); font-weight: 300; font-size: 0.65rem; letter-spacing: 0.06em; text-align: center; margin-top: 0.6rem; color: var(--text-muted);">Click the input to see the focus state</div>
+      </div>
+
+      <div class="subsection-title">Section Divider</div>
+      <div style="margin: 1rem 0;">
+        <div class="section-divider">
+          <span class="section-divider__label">What Notice Does</span>
+          <span class="section-divider__line"></span>
+        </div>
+      </div>
+
+      <div class="subsection-title">Feedback States</div>
+      <div class="feedback-row">
+        <span class="feedback-item" style="color: var(--success);">&#10003; You're on the list. We'll be in touch.</span>
+        <span class="feedback-item" style="color: var(--error);">Something went wrong. Please try again.</span>
+        <span class="feedback-item" style="color: var(--info);">Syncing...</span>
+        <span class="feedback-item" style="color: var(--warning);">Watch battery low</span>
+      </div>
+
+      <div class="subsection-title">Status Badges</div>
+      <div class="badge-row">
+        <span class="status-badge" style="color: var(--error);">Elevated</span>
+        <span class="status-badge" style="color: var(--text-light);">Baseline</span>
+        <span class="status-badge" style="color: #2F6B8A;">Low</span>
+        <span class="status-badge" style="color: var(--warning);">Rising</span>
+        <span class="status-badge" style="color: var(--success);">Falling</span>
+      </div>
+
+      <div class="subsection-title">Confidence Indicator</div>
+      <div style="display: flex; align-items: center; gap: 1.5rem; margin: 1rem 0;">
+        <div style="display: flex; flex-direction: column; gap: 0.3rem; align-items: center;">
+          <div class="confidence-dots">
+            <div class="confidence-dot confidence-dot--filled"></div>
+            <div class="confidence-dot confidence-dot--filled"></div>
+            <div class="confidence-dot confidence-dot--empty"></div>
+            <div class="confidence-dot confidence-dot--empty"></div>
+            <div class="confidence-dot confidence-dot--empty"></div>
+          </div>
+          <span class="demo-label">Low</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 0.3rem; align-items: center;">
+          <div class="confidence-dots">
+            <div class="confidence-dot confidence-dot--filled"></div>
+            <div class="confidence-dot confidence-dot--filled"></div>
+            <div class="confidence-dot confidence-dot--filled"></div>
+            <div class="confidence-dot confidence-dot--empty"></div>
+            <div class="confidence-dot confidence-dot--empty"></div>
+          </div>
+          <span class="demo-label">Medium</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 0.3rem; align-items: center;">
+          <div class="confidence-dots">
+            <div class="confidence-dot confidence-dot--filled"></div>
+            <div class="confidence-dot confidence-dot--filled"></div>
+            <div class="confidence-dot confidence-dot--filled"></div>
+            <div class="confidence-dot confidence-dot--filled"></div>
+            <div class="confidence-dot confidence-dot--filled"></div>
+          </div>
+          <span class="demo-label">High</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         5. DARK / LIGHT MODES
+         ================================================================ -->
+    <section id="modes">
+      <div class="section-divider">
+        <span class="section-divider__label">05 — Dark / Light Modes</span>
+        <span class="section-divider__line"></span>
+      </div>
+      <p class="section-desc">Watch is always dark. iPhone supports both. Web is light only (v1). The semantic token system maps every color to both contexts.</p>
+
+      <div class="mode-comparison">
+        <!-- Light panel -->
+        <div class="mode-panel mode-panel--light">
+          <div class="mode-panel__title">Light Context — iPhone / Web</div>
+          <div class="mode-surface" style="background: var(--surface-warm);">
+            <div class="mode-text" style="color: var(--text);">Primary text on warm surface</div>
+            <div class="mode-text" style="color: var(--text-mid);">Secondary text</div>
+            <div class="mode-text-sm" style="color: var(--text-light);">Tertiary · 7A7068</div>
+          </div>
+          <div class="mode-surface" style="background: var(--surface-card);">
+            <div class="mode-text" style="color: var(--text);">Card surface</div>
+            <div class="mode-text-sm" style="color: var(--text-muted);">Muted text · A69D94</div>
+          </div>
+          <button class="mode-btn" style="background: var(--burnt-marigold);">Join Beta</button>
+          <div style="margin-top: 1rem;">
+            <span class="mode-badge" style="color: var(--error);">Elevated</span>
+            <span class="mode-badge" style="color: #2F6B8A;">Low</span>
+            <span class="mode-badge" style="color: var(--success);">Falling</span>
+          </div>
+        </div>
+
+        <!-- Dark panel -->
+        <div class="mode-panel mode-panel--dark">
+          <div class="mode-panel__title">Dark Context — Watch / iPhone Dark</div>
+          <div class="mode-surface" style="background: var(--dark-mid);">
+            <div class="mode-text" style="color: var(--text-dark-primary);">Primary text on dark surface</div>
+            <div class="mode-text" style="color: var(--text-dark-secondary);">Secondary text</div>
+            <div class="mode-text-sm" style="color: var(--text-dark-muted);">Muted text · 8A8078</div>
+          </div>
+          <div class="mode-surface" style="background: var(--dark-card);">
+            <div class="mode-text" style="color: var(--text-dark-primary);">Card surface</div>
+            <div class="mode-text-sm" style="color: var(--text-dark-muted);">Dark card · 322E29</div>
+          </div>
+          <button class="mode-btn" style="background: var(--cta-dark);">Join Beta</button>
+          <div style="margin-top: 1rem;">
+            <span class="mode-badge" style="color: var(--error-dark);">Elevated</span>
+            <span class="mode-badge" style="color: #5A9BC0;">Low</span>
+            <span class="mode-badge" style="color: var(--success-dark);">Falling</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         6. ICONOGRAPHY
+         ================================================================ -->
+    <section id="icons">
+      <div class="section-divider">
+        <span class="section-divider__label">06 — Iconography</span>
+        <span class="section-divider__line"></span>
+      </div>
+      <p class="section-desc">Custom inline SVG. 1.5px stroke, round caps and joins. Burnt marigold strokes, bright marigold accent fills. No icon library.</p>
+
+      <div class="icon-grid">
+        <!-- Pulse -->
+        <div class="icon-cell">
+          <svg viewBox="0 0 36 36" fill="none">
+            <circle cx="18" cy="18" r="14" stroke="#B9691E" stroke-width="1.5" opacity="0.3"/>
+            <path d="M10 18 Q14 10, 18 18 Q22 26, 26 18" stroke="#B9691E" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="18" cy="18" r="2.5" fill="#F0AF32"/>
+          </svg>
+          <span class="icon-cell__label">pulse</span>
+        </div>
+        <!-- HRV -->
+        <div class="icon-cell">
+          <svg viewBox="0 0 36 36" fill="none">
+            <path d="M6 26 L12 18 L18 22 L24 12 L30 16" stroke="#B9691E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="12" cy="18" r="2" fill="#F0AF32"/>
+            <circle cx="18" cy="22" r="2" fill="#F0AF32"/>
+            <circle cx="24" cy="12" r="2" fill="#F0AF32"/>
+          </svg>
+          <span class="icon-cell__label">hrv</span>
+        </div>
+        <!-- Breath -->
+        <div class="icon-cell">
+          <svg viewBox="0 0 36 36" fill="none">
+            <circle cx="18" cy="18" r="14" stroke="#B9691E" stroke-width="1.5" opacity="0.2"/>
+            <circle cx="18" cy="18" r="8" stroke="#B9691E" stroke-width="1.5" opacity="0.4"/>
+            <circle cx="18" cy="18" r="3" fill="#F0AF32"/>
+          </svg>
+          <span class="icon-cell__label">breath</span>
+        </div>
+        <!-- Bell -->
+        <div class="icon-cell">
+          <svg viewBox="0 0 36 36" fill="none">
+            <path d="M14 27c0 2.2 1.8 4 4 4s4-1.8 4-4" stroke="#B9691E" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M10 24h16c0 0-1-3-1-8 0-3.9-2.7-7-7-7s-7 3.1-7 7c0 5-1 8-1 8z" stroke="#B9691E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="18" cy="8.5" r="1" fill="#F0AF32"/>
+          </svg>
+          <span class="icon-cell__label">bell</span>
+        </div>
+        <!-- Gear -->
+        <div class="icon-cell">
+          <svg viewBox="0 0 36 36" fill="none">
+            <circle cx="18" cy="18" r="5" stroke="#B9691E" stroke-width="1.5"/>
+            <circle cx="18" cy="18" r="12" stroke="#B9691E" stroke-width="1.5" opacity="0.2" stroke-dasharray="4 3"/>
+            <circle cx="18" cy="18" r="2" fill="#F0AF32"/>
+          </svg>
+          <span class="icon-cell__label">gear</span>
+        </div>
+        <!-- Timeline -->
+        <div class="icon-cell">
+          <svg viewBox="0 0 36 36" fill="none">
+            <line x1="12" y1="8" x2="12" y2="28" stroke="#B9691E" stroke-width="1.5" opacity="0.3"/>
+            <circle cx="12" cy="12" r="3" fill="#F0AF32"/>
+            <circle cx="12" cy="20" r="3" fill="#F0AF32" opacity="0.6"/>
+            <circle cx="12" cy="28" r="2" fill="#F0AF32" opacity="0.3"/>
+            <line x1="18" y1="12" x2="28" y2="12" stroke="#B9691E" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="18" y1="20" x2="26" y2="20" stroke="#B9691E" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+          </svg>
+          <span class="icon-cell__label">timeline</span>
+        </div>
+        <!-- Check -->
+        <div class="icon-cell">
+          <svg viewBox="0 0 36 36" fill="none">
+            <circle cx="18" cy="18" r="13" stroke="#B9691E" stroke-width="1.5" opacity="0.2"/>
+            <path d="M12 18l4 4 8-8" stroke="#B9691E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="icon-cell__label">check</span>
+        </div>
+        <!-- Close -->
+        <div class="icon-cell">
+          <svg viewBox="0 0 36 36" fill="none">
+            <circle cx="18" cy="18" r="13" stroke="#B9691E" stroke-width="1.5" opacity="0.2"/>
+            <path d="M13 13l10 10M23 13l-10 10" stroke="#B9691E" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span class="icon-cell__label">close</span>
+        </div>
+        <!-- Heart -->
+        <div class="icon-cell">
+          <svg viewBox="0 0 36 36" fill="none">
+            <path d="M18 28s-9-6-9-13c0-3.3 2.7-6 6-6 2 0 3 1.5 3 1.5s1-1.5 3-1.5c3.3 0 6 2.7 6 6 0 7-9 13-9 13z" stroke="#B9691E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 19h4l2-4 2 6 2-4h4" stroke="#F0AF32" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="icon-cell__label">heart</span>
+        </div>
+        <!-- Arrow Up -->
+        <div class="icon-cell">
+          <svg viewBox="0 0 36 36" fill="none">
+            <path d="M18 26V10M12 16l6-6 6 6" stroke="#B9691E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="icon-cell__label">arrow-up</span>
+        </div>
+        <!-- Arrow Down -->
+        <div class="icon-cell">
+          <svg viewBox="0 0 36 36" fill="none">
+            <path d="M18 10v16M12 20l6 6 6-6" stroke="#B9691E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="icon-cell__label">arrow-down</span>
+        </div>
+        <!-- Info -->
+        <div class="icon-cell">
+          <svg viewBox="0 0 36 36" fill="none">
+            <circle cx="18" cy="18" r="13" stroke="#B9691E" stroke-width="1.5" opacity="0.3"/>
+            <line x1="18" y1="17" x2="18" y2="25" stroke="#B9691E" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="18" cy="12" r="1.5" fill="#F0AF32"/>
+          </svg>
+          <span class="icon-cell__label">info</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         7. MOTION & ANIMATION
+         ================================================================ -->
+    <section id="motion">
+      <div class="section-divider">
+        <span class="section-divider__label">07 — Motion</span>
+        <span class="section-divider__line"></span>
+      </div>
+      <p class="section-desc">Embodied motion. Breath-paced ambient cycles, gentle entrance animations, and a signature easing curve that decelerates like an exhale.</p>
+
+      <div class="motion-demo-grid">
+        <!-- Fade Up -->
+        <div class="motion-box">
+          <div class="motion-box__label">Fade Up</div>
+          <div class="fadeup-target" id="fadeupTarget"></div>
+          <div class="motion-box__detail">0.6s · ease-default · translateY(12px)</div>
+          <button class="replay-btn" onclick="replayFadeUp()">Replay</button>
+        </div>
+
+        <!-- Stagger -->
+        <div class="motion-box">
+          <div class="motion-box__label">Stagger</div>
+          <div class="stagger-row" id="staggerRow">
+            <div class="stagger-dot" data-delay="0"></div>
+            <div class="stagger-dot" data-delay="120"></div>
+            <div class="stagger-dot" data-delay="240"></div>
+            <div class="stagger-dot" data-delay="360"></div>
+            <div class="stagger-dot" data-delay="480"></div>
+          </div>
+          <div class="motion-box__detail">120ms intervals · cascade</div>
+          <button class="replay-btn" onclick="replayStagger()">Replay</button>
+        </div>
+
+        <!-- Breath -->
+        <div class="motion-box">
+          <div class="motion-box__label">Breath Cycle</div>
+          <div class="breath-circle"></div>
+          <div class="motion-box__detail">8s full cycle · scale 1.0–1.15 · ambient only</div>
+        </div>
+      </div>
+
+      <div class="subsection-title">Easing Curves</div>
+      <table class="token-table" style="margin-top: 1rem;">
+        <thead>
+          <tr><th>Token</th><th>Value</th><th>Usage</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="token-name">ease.default</td>
+            <td>cubic-bezier(0.25, 0.46, 0.45, 0.94)</td>
+            <td>Entrance/exit animations</td>
+          </tr>
+          <tr>
+            <td class="token-name">ease.interactive</td>
+            <td>cubic-bezier(0.25, 0.1, 0.25, 1.0)</td>
+            <td>Button press, toggles</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="subsection-title">Duration Scale</div>
+      <table class="token-table" style="margin-top: 1rem;">
+        <thead>
+          <tr><th>Token</th><th>Value</th><th>Usage</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="token-name">duration.fast</td><td>0.15s</td><td>Hover, micro-interactions</td></tr>
+          <tr><td class="token-name">duration.medium</td><td>0.3s</td><td>State changes</td></tr>
+          <tr><td class="token-name">duration.default</td><td>0.6s</td><td>Entrance animations</td></tr>
+          <tr><td class="token-name">duration.slow</td><td>1.0s</td><td>Page transitions</td></tr>
+          <tr><td class="token-name">duration.breath</td><td>4.0s</td><td>Ambient breath cycles</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ================================================================
+         8. DATA VISUALIZATION
+         ================================================================ -->
+    <section id="dataviz">
+      <div class="section-divider">
+        <span class="section-divider__label">08 — Data Visualization</span>
+        <span class="section-divider__line"></span>
+      </div>
+      <p class="section-desc">Warm, precise, revealing. No chartjunk. Data that means something.</p>
+
+      <div class="subsection-title">Signal Display — Watch (Dark Context)</div>
+      <div class="viz-container viz-container--dark" style="display: flex; align-items: center; justify-content: center; gap: 3rem; flex-wrap: wrap; padding: 2rem;">
+        <div style="text-align: center;">
+          <div class="signal-display">
+            <span class="signal-value" style="color: var(--text-dark-primary);">72</span>
+            <span class="signal-unit" style="color: var(--text-dark-muted);">bpm</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="margin-left: 4px;">
+              <path d="M8 12V4M5 7l3-3 3 3" stroke="#6B9E6B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div style="margin-top: 0.5rem;">
+            <span class="status-badge" style="color: var(--success-dark);">Falling</span>
+          </div>
+        </div>
+        <div style="text-align: center;">
+          <div class="signal-display">
+            <span class="signal-value" style="color: var(--text-dark-primary);">38</span>
+            <span class="signal-unit" style="color: var(--text-dark-muted);">ms</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="margin-left: 4px;">
+              <path d="M8 4v8M5 9l3 3 3-3" stroke="#D4654F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div style="margin-top: 0.5rem;">
+            <span class="status-badge" style="color: var(--error-dark);">Elevated</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection-title">Line Chart — iPhone (Light Context)</div>
+      <div class="viz-container">
+        <svg class="sparkline-demo" viewBox="0 0 400 80" preserveAspectRatio="none">
+          <!-- Grid lines -->
+          <line x1="0" y1="20" x2="400" y2="20" stroke="rgba(42,37,32,0.06)" stroke-width="0.5"/>
+          <line x1="0" y1="40" x2="400" y2="40" stroke="rgba(42,37,32,0.06)" stroke-width="0.5"/>
+          <line x1="0" y1="60" x2="400" y2="60" stroke="rgba(42,37,32,0.06)" stroke-width="0.5"/>
+          <!-- Axis -->
+          <line x1="0" y1="78" x2="400" y2="78" stroke="rgba(42,37,32,0.18)" stroke-width="0.5"/>
+          <!-- Fill area -->
+          <path d="M0 50 Q25 42, 50 45 Q75 48, 100 35 Q125 22, 150 30 Q175 38, 200 32 Q225 26, 250 28 Q275 30, 300 22 Q325 14, 350 20 Q375 26, 400 18 L400 78 L0 78Z" fill="url(#chartGradient)" />
+          <!-- Line -->
+          <path d="M0 50 Q25 42, 50 45 Q75 48, 100 35 Q125 22, 150 30 Q175 38, 200 32 Q225 26, 250 28 Q275 30, 300 22 Q325 14, 350 20 Q375 26, 400 18" stroke="#F0AF32" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <defs>
+            <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#F0AF32" stop-opacity="0.15"/>
+              <stop offset="100%" stop-color="#F0AF32" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div style="display: flex; justify-content: space-between; padding: 0.25rem 0;">
+          <span style="font-family: var(--font-mono); font-weight: 300; font-size: 0.6rem; color: var(--text-muted);">9am</span>
+          <span style="font-family: var(--font-mono); font-weight: 300; font-size: 0.6rem; color: var(--text-muted);">12pm</span>
+          <span style="font-family: var(--font-mono); font-weight: 300; font-size: 0.6rem; color: var(--text-muted);">3pm</span>
+          <span style="font-family: var(--font-mono); font-weight: 300; font-size: 0.6rem; color: var(--text-muted);">6pm</span>
+          <span style="font-family: var(--font-mono); font-weight: 300; font-size: 0.6rem; color: var(--text-muted);">9pm</span>
+        </div>
+      </div>
+
+      <div class="subsection-title">Insight Card with Sparkline + Confidence</div>
+      <div style="max-width: 400px; margin: 1rem 0;">
+        <div class="demo-card" style="max-width: 100%;">
+          <div class="demo-card__label">Pattern Detected</div>
+          <div class="demo-card__desc" style="margin-bottom: 0.75rem;">Your HRV drops consistently between 2–4pm on weekdays. You've described feeling "tight" during these windows.</div>
+          <svg width="100%" height="32" viewBox="0 0 320 32" preserveAspectRatio="none" style="margin-bottom: 0.5rem;">
+            <path d="M0 16 Q20 8, 40 16 Q60 24, 80 14 Q100 4, 120 16 Q140 28, 160 14 Q180 2, 200 16 Q220 30, 240 12 Q260 4, 280 16 Q300 24, 320 14" stroke="#F0AF32" stroke-width="2" fill="none" stroke-linecap="round"/>
+          </svg>
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div class="confidence-dots">
+              <div class="confidence-dot confidence-dot--filled"></div>
+              <div class="confidence-dot confidence-dot--filled"></div>
+              <div class="confidence-dot confidence-dot--filled"></div>
+              <div class="confidence-dot confidence-dot--filled"></div>
+              <div class="confidence-dot confidence-dot--empty"></div>
+            </div>
+            <span style="font-family: var(--font-mono); font-weight: 300; font-size: 0.55rem; color: var(--text-muted); letter-spacing: 0.06em;">12 OCCURRENCES</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         9. SURFACE MOCKUPS
+         ================================================================ -->
+    <section id="surfaces">
+      <div class="section-divider">
+        <span class="section-divider__label">09 — Surface Mockups</span>
+        <span class="section-divider__line"></span>
+      </div>
+      <p class="section-desc">Watch is the primary surface. iPhone is the companion. Both shown with representative screens.</p>
+
+      <div class="mockup-row">
+        <!-- Watch mockup: Nudge -->
+        <div class="mockup-wrapper">
+          <div class="watch-mockup">
+            <div style="font-family: var(--font-mono); font-weight: 300; font-size: 0.45rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dark-muted); margin-bottom: 0.5rem;">Nudge</div>
+            <div class="watch-prompt">Your heart rate shifted. What do you notice?</div>
+            <div class="watch-option">Tight</div>
+            <div class="watch-option">Buzzing</div>
+            <div class="watch-option">Heavy</div>
+            <div class="watch-option watch-option--skip">Skip</div>
+          </div>
+          <span class="mockup-wrapper__label">Watch — Prompt Screen</span>
+        </div>
+
+        <!-- Watch mockup: Signal -->
+        <div class="mockup-wrapper">
+          <div class="watch-mockup">
+            <div style="width: 28px; height: 28px; border-radius: 50; margin-bottom: 0.4rem;">
+              <svg viewBox="0 0 36 36" fill="none" width="28" height="28">
+                <circle cx="18" cy="18" r="14" stroke="#F0AF32" stroke-width="1.5" opacity="0.3"/>
+                <path d="M10 18 Q14 10, 18 18 Q22 26, 26 18" stroke="#F0AF32" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="signal-display" style="justify-content: center;">
+              <span class="signal-value" style="color: var(--text-dark-primary); font-size: 2rem;">72</span>
+              <span class="signal-unit" style="color: var(--text-dark-muted);">bpm</span>
+            </div>
+            <div style="margin-top: 0.3rem;">
+              <span class="status-badge" style="color: var(--success-dark); font-size: 0.5rem;">Baseline</span>
+            </div>
+          </div>
+          <span class="mockup-wrapper__label">Watch — Signal Screen</span>
+        </div>
+
+        <!-- iPhone mockup: Timeline -->
+        <div class="mockup-wrapper">
+          <div class="phone-mockup">
+            <div class="phone-mockup__header">
+              <span class="phone-mockup__title">Timeline</span>
+              <svg width="20" height="20" viewBox="0 0 36 36" fill="none">
+                <circle cx="18" cy="18" r="5" stroke="#7A7068" stroke-width="1.5"/>
+                <circle cx="18" cy="18" r="12" stroke="#7A7068" stroke-width="1.5" opacity="0.2" stroke-dasharray="4 3"/>
+              </svg>
+            </div>
+            <div class="phone-card">
+              <div class="phone-card__meta">2:15pm · HRV Shift</div>
+              <div class="phone-card__text">HRV dropped from 42ms to 28ms. You reported "tight."</div>
+              <div style="margin-top: 0.4rem;"><span class="status-badge" style="color: var(--error); font-size: 0.5rem;">Elevated</span></div>
+            </div>
+            <div class="phone-card">
+              <div class="phone-card__meta" style="color: var(--burnt-marigold);">Pattern Detected</div>
+              <div class="phone-card__text">Your HRV drops consistently between 2–4pm on weekdays.</div>
+              <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.4rem;">
+                <div class="confidence-dots">
+                  <div class="confidence-dot confidence-dot--filled" style="width: 4px; height: 4px;"></div>
+                  <div class="confidence-dot confidence-dot--filled" style="width: 4px; height: 4px;"></div>
+                  <div class="confidence-dot confidence-dot--filled" style="width: 4px; height: 4px;"></div>
+                  <div class="confidence-dot confidence-dot--empty" style="width: 4px; height: 4px;"></div>
+                </div>
+              </div>
+            </div>
+            <div class="phone-card">
+              <div class="phone-card__meta">9:40am · Nudge</div>
+              <div class="phone-card__text">Heart rate shifted. You reported "open."</div>
+              <div style="margin-top: 0.4rem;"><span class="status-badge" style="color: #2F6B8A; font-size: 0.5rem;">Baseline</span></div>
+            </div>
+          </div>
+          <span class="mockup-wrapper__label">iPhone — Timeline</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+         10. VOICE & COPY
+         ================================================================ -->
+    <section id="voice">
+      <div class="section-divider">
+        <span class="section-divider__label">10 — Voice & Copy</span>
+        <span class="section-divider__line"></span>
+      </div>
+      <p class="section-desc">Direct, warm, embodied. Names what's happening without judging it. No emoji, no forced positivity, no gamification.</p>
+
+      <div class="subsection-title">Nudge Prompts</div>
+      <div class="voice-example">
+        <div class="voice-do">
+          <div class="voice-tag">Do</div>
+          <div class="voice-text">"Your heart rate shifted. What do you notice?"</div>
+        </div>
+        <div class="voice-dont">
+          <div class="voice-tag">Don't</div>
+          <div class="voice-text">"Uh oh! Your stress levels are up. Try taking 3 deep breaths!"</div>
+        </div>
+      </div>
+
+      <div class="subsection-title">Insight Cards</div>
+      <div class="voice-example">
+        <div class="voice-do">
+          <div class="voice-tag">Do</div>
+          <div class="voice-text">"On days you walk before 9am, your afternoon HRV is 15% higher than your baseline."</div>
+        </div>
+        <div class="voice-dont">
+          <div class="voice-tag">Don't</div>
+          <div class="voice-text">"Great job walking this morning! Keep it up!"</div>
+        </div>
+      </div>
+
+      <div class="subsection-title">Error States</div>
+      <div class="voice-example">
+        <div class="voice-do">
+          <div class="voice-tag">Do</div>
+          <div class="voice-text">"Can't reach the server. Your data is saved locally and will sync when the connection returns."</div>
+        </div>
+        <div class="voice-dont">
+          <div class="voice-tag">Don't</div>
+          <div class="voice-text">"Oops! Something went wrong. Please bear with us!"</div>
+        </div>
+      </div>
+
+      <div class="subsection-title">Empty States</div>
+      <div class="voice-example">
+        <div class="voice-do">
+          <div class="voice-tag">Do</div>
+          <div class="voice-text">"No signals yet. Notice is calibrating to your baseline."</div>
+        </div>
+        <div class="voice-dont">
+          <div class="voice-tag">Don't</div>
+          <div class="voice-text">"Nothing here yet! Start your wellness journey today!"</div>
+        </div>
+      </div>
+
+      <div class="subsection-title">Response Vocabulary</div>
+      <p class="section-desc" style="margin-bottom: 1rem;">Somatic descriptors, not emotional categories. The user names what the body feels like, not what the mind thinks about it.</p>
+      <div class="demo-row" style="gap: 0.5rem;">
+        <span style="display: inline-block; padding: 0.4rem 0.9rem; background: var(--dark-card); color: var(--text-dark-primary); border-radius: 8px; font-family: var(--font-body); font-weight: 300; font-size: 0.75rem;">Tight</span>
+        <span style="display: inline-block; padding: 0.4rem 0.9rem; background: var(--dark-card); color: var(--text-dark-primary); border-radius: 8px; font-family: var(--font-body); font-weight: 300; font-size: 0.75rem;">Open</span>
+        <span style="display: inline-block; padding: 0.4rem 0.9rem; background: var(--dark-card); color: var(--text-dark-primary); border-radius: 8px; font-family: var(--font-body); font-weight: 300; font-size: 0.75rem;">Heavy</span>
+        <span style="display: inline-block; padding: 0.4rem 0.9rem; background: var(--dark-card); color: var(--text-dark-primary); border-radius: 8px; font-family: var(--font-body); font-weight: 300; font-size: 0.75rem;">Light</span>
+        <span style="display: inline-block; padding: 0.4rem 0.9rem; background: var(--dark-card); color: var(--text-dark-primary); border-radius: 8px; font-family: var(--font-body); font-weight: 300; font-size: 0.75rem;">Buzzing</span>
+        <span style="display: inline-block; padding: 0.4rem 0.9rem; background: var(--dark-card); color: var(--text-dark-primary); border-radius: 8px; font-family: var(--font-body); font-weight: 300; font-size: 0.75rem;">Numb</span>
+        <span style="display: inline-block; padding: 0.4rem 0.9rem; background: var(--dark-card); color: var(--text-dark-primary); border-radius: 8px; font-family: var(--font-body); font-weight: 300; font-size: 0.75rem;">Warm</span>
+        <span style="display: inline-block; padding: 0.4rem 0.9rem; background: var(--dark-card); color: var(--text-dark-primary); border-radius: 8px; font-family: var(--font-body); font-weight: 300; font-size: 0.75rem;">Cool</span>
+        <span style="display: inline-block; padding: 0.4rem 0.9rem; background: var(--dark-card); color: var(--text-dark-primary); border-radius: 8px; font-family: var(--font-body); font-weight: 300; font-size: 0.75rem;">Restless</span>
+        <span style="display: inline-block; padding: 0.4rem 0.9rem; background: var(--dark-card); color: var(--text-dark-primary); border-radius: 8px; font-family: var(--font-body); font-weight: 300; font-size: 0.75rem;">Still</span>
+      </div>
+    </section>
+
+  </div><!-- /.container -->
+
+  <!-- FOOTER -->
+  <footer class="page-footer">
+    <p class="page-footer__text">Notice Design System v1.0 &middot; 2026-03-05 &middot; See NOTICE-DESIGN-SYSTEM.md for full spec</p>
+  </footer>
+
+  <script>
+    // Motion demos
+    function replayFadeUp() {
+      var el = document.getElementById('fadeupTarget');
+      el.classList.remove('active');
+      void el.offsetWidth; // force reflow
+      setTimeout(function() { el.classList.add('active'); }, 50);
+    }
+
+    function replayStagger() {
+      var dots = document.querySelectorAll('#staggerRow .stagger-dot');
+      dots.forEach(function(d) { d.classList.remove('active'); });
+      void dots[0].offsetWidth;
+      dots.forEach(function(d) {
+        var delay = parseInt(d.dataset.delay || '0', 10);
+        setTimeout(function() { d.classList.add('active'); }, delay + 50);
+      });
+    }
+
+    // Auto-play on scroll
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      var motionObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            setTimeout(replayFadeUp, 200);
+            setTimeout(replayStagger, 200);
+            motionObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+      var motionSection = document.getElementById('motion');
+      if (motionSection) motionObserver.observe(motionSection);
+    }
+  </script>
+
+</body>
+</html>
